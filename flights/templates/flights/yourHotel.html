@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
   <meta charset="utf-8">
@@ -16,7 +16,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/flights">Flight Scrape</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
@@ -34,39 +34,28 @@
     </div>
   </nav>
   <div class="container">
-    <h3 class="text-center card-header">Find Your Hotel</h3>
-    {% load widget_tweaks %}
-    <form class="card-body" method="post">
-      {% csrf_token %}
-      <div class="form-group row">
-        <label for="locFrom" class="col-form-label">Location</label>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <div class="input-group-text" id="basic-addon1">></div>
+    <div class="row">
+      {% for item in outBound %}
+      <div class="col-md-4 card-adj">
+        <div class="card">
+          <img class="cards-contain" src="{{ clip }}" alt="Card image cap">
+          <div class="card-body antiTextDecor">
+            <a href="{{ item.url }}">
+              <h4 class="cardLockTitle">{{ item.hotel_name }}</h4>
+            </a>
+            <p>{{ item.locality }}</p>
+            <p>Reviews: {{ item.reviews }}</p>
+            <p>Duration: {{ item.checkIn }} -> {{ item.checkOut }}</p>
+            <p>Features: {{ item.hotel_features }}</p>
+            <p>Number of deals: {{ item.no_of_deals }}</p>
+            <p>Provider: {{ item.booking_provider }}</p>
+            <h4 class="darkRed">{{ item.price_per_night }}/night</h4>
           </div>
-          {% render_field form.location class="form-control" %}
         </div>
       </div>
-      <div class="form-group row">
-        <label for="dateFrom" class="col-form-label">Date From</label>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <div class="input-group-text" id="basic-addon1">></div>
-          </div>
-          {% render_field form.dateFrom class="form-control" %}
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="dateTo" class="col-form-label">Date To</label>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <div class="input-group-text" id="basic-addon2">></div>
-          </div>
-          {% render_field form.dateTo class="form-control" %}
-        </div>
-      </div>
-      <p class="text-center"><button type="submit" class="text-center btn btn-danger">Search</button></p>
-    </form>
+      {% endfor %}
+    </div>
+    <hr>
   </div>
   <footer class="text-center">
     <div class="container">
