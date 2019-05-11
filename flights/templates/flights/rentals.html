@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flight Scrape</title>
+  <!-- Bootstrap -->
+  <link href="{% static 'flights/stylesheets/application.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'flights/stylesheets/custom.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/flights">Flight Scrape</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
+          <div class="dropdown-menu dropdown-adj" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/flights">Flights</a>
+            <a class="dropdown-item" href="/flights/hotels">Hotels</a>
+            <a class="dropdown-item" href="/flights/rentals">Rentals</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/login">Login/Sign-Up</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <h3 class="text-center card-header">Find Your Rental</h3>
+    {% load widget_tweaks %}
+    <form class="card-body" method="post">
+      {% csrf_token %}
+      <div class="form-group row">
+        <label for="locFrom" class="col-form-label">Location From</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="basic-addon1">></div>
+          </div>
+          {% render_field form.locFrom class="form-control" %}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="locTo" class="col-form-label">Location To</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="basic-addon1">></div>
+          </div>
+          {% render_field form.locTo class="form-control" %}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="dateFrom" class="col-form-label">Date From</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="basic-addon1">></div>
+          </div>
+          {% render_field form.dateFrom class="form-control" %}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="dateTo" class="col-form-label">Date To</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="basic-addon2">></div>
+          </div>
+          {% render_field form.dateTo class="form-control" %}
+        </div>
+      </div>
+      <p class="text-center"><button type="submit" class="text-center btn btn-danger">Search</button></p>
+    </form>
+  </div>
+  <footer class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <p>Copyright © Flight Scrape. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="{% static 'flights/javascripts/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'flights/javascripts/popper.min.js' %}"></script>
+  <script src="{% static 'flights/javascripts/bootstrap-4.3.1.js' %}"></script>
+</body>
+
+</html>

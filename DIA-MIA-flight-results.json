@@ -1,0 +1,50 @@
+[
+    {
+        "stops": "1 Stop",
+        "ticket price": "523.99",
+        "departure": ", Denver",
+        "arrival": ", Miami",
+        "flight duration": "0 days 9 hours 19 minutes",
+        "airline": "Delta",
+        "plane": "Boeing 737-800",
+        "timings": [
+            {
+                "departure_airport": "Denver, CO (DEN-Denver Intl.)",
+                "departure_time": "11:59pm",
+                "arrival_airport": "New York, NY (JFK-John F. Kennedy Intl.)",
+                "arrival_time": "5:55am"
+            },
+            {
+                "departure_airport": "New York, NY (JFK-John F. Kennedy Intl.)",
+                "departure_time": "8:05am",
+                "arrival_airport": "Miami, FL (MIA-Miami Intl.)",
+                "arrival_time": "11:18am"
+            }
+        ],
+        "plane code": "738"
+    },
+    {
+        "stops": "1 Stop",
+        "ticket price": "580.00",
+        "departure": ", Denver",
+        "arrival": ", Miami",
+        "flight duration": "0 days 8 hours 4 minutes",
+        "airline": "United",
+        "plane": "Boeing 737-800",
+        "timings": [
+            {
+                "departure_airport": "Denver, CO (DEN-Denver Intl.)",
+                "departure_time": "11:45pm",
+                "arrival_airport": "Newark, NJ (EWR-Liberty Intl.)",
+                "arrival_time": "5:17am"
+            },
+            {
+                "departure_airport": "Newark, NJ (EWR-Liberty Intl.)",
+                "departure_time": "6:45am",
+                "arrival_airport": "Miami, FL (MIA-Miami Intl.)",
+                "arrival_time": "9:49am"
+            }
+        ],
+        "plane code": "738"
+    }
+]

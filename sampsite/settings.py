@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     # 4 Run python3 manage.py migrate to create the DB
     # 4 Create the models in polls/models.py
     'flights',
+    'widget_tweaks',
 ]
 
 # 6 We can add data to the DB using the Python shell

@@ -186,7 +186,10 @@ if __name__ == "__main__":
 
     scraped_data = parse(source, destination, date)
 
-    print("Writing data to output file")
+    print(scraped_data[0]['stops'])
+
+    '''print("Writing data to output file")
 
     with open('%s-%s-flight-results.json' % (source, destination), 'w') as fp:
         json.dump(scraped_data, fp, indent=4)
+    '''
