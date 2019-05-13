@@ -5,13 +5,18 @@ It currently only calls the tutorial_test parser, but it should work with any sc
 '''
 
 from expedia_scrapper import parse
+from date_adjuster import date_range_creator
 import pprint
 
 
-def date_loop(origin, destination, depart_dates, ret_dates):
+def date_loop(origin, destination, depart_date, ret_date):
 
     # Initialize data structure to return
     flightList = []
+
+    # generate range of dates to scrap
+    depart_dates = date_range_creator(depart_date)
+    ret_dates = date_range_creator(ret_date)
 
     # Find departure flights
     for date in depart_dates:
