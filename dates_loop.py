@@ -49,8 +49,8 @@ def date_loop(origin, destination, depart_date, ret_date):
 
 
 # testing dates
-depart = ['06/05/2019', '06/06/2019', '06/07/2019']
-ret = ['06/12/2019', '06/13/2019', '06/14/2019']
+depart = '06/05/2019'
+ret = '06/12/2019'
 
 # test call
 pprint.pprint(date_loop('den', 'ord', depart, ret))
