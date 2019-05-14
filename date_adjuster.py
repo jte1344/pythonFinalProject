@@ -35,6 +35,6 @@ def date_range_creator(date):
     return dateRange
 
 # Test the function
-date = '12/31/2019'
+#date = '12/31/2019'
 
-print(date_range_creator(date))
+#print(date_range_creator(date))
