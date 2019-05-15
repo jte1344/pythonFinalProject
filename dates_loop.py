@@ -4,20 +4,15 @@ It will use them to loop through the dates and call the scrappers for each direc
 It currently only calls the tutorial_test parser, but it should work with any scrapper, provided we adjust the output.
 '''
 
+# import needed modules
 from expedia_scrapper import parse
 from date_adjuster import date_range_creator
-from airport_code_retrieval import airport_code
-#import pprint
 
 
 def date_loop(origin, destination, depart_date, ret_date):
 
     # Initialize data structure to return
     flightList = []
-    
-    # Get origin and destination airport codes
-    originCode = airport_code(origin)
-    destinationCode = airport_code(destination)
 
     # generate range of dates to scrap
     depart_dates = date_range_creator(depart_date)
@@ -29,7 +24,7 @@ def date_loop(origin, destination, depart_date, ret_date):
         print("Fetching flight details")
 
         # We can add the other scrappers to this so it gets all of the json data from each site
-        scraped_data = parse(originCode, destinationCode, date)
+        scraped_data = parse(origin, destination, date)
 
         print("Updating Flight Dictionary")
 
@@ -43,7 +38,7 @@ def date_loop(origin, destination, depart_date, ret_date):
         print("Fetching flight details")
 
         # We can add the other scrappers to this so it gets all of the json data from each site
-        scraped_data = parse(destinationCode, originCode, date)
+        scraped_data = parse(destination, origin, date)
 
         print("Updating Flight Dictionary")
 
@@ -51,11 +46,3 @@ def date_loop(origin, destination, depart_date, ret_date):
         flightList.append(scraped_data)
 
     return flightList
-
-
-# testing dates
-depart = '06/05/2019'
-ret = '06/12/2019'
-
-# test call
-pprint.pprint(date_loop('den', 'ord', depart, ret))
