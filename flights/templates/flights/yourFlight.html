@@ -16,7 +16,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/flights">Flight Scrape</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
@@ -26,16 +26,15 @@
             <a class="dropdown-item" href="/flights">Flights</a>
             <a class="dropdown-item" href="/flights/hotels">Hotels</a>
             <a class="dropdown-item" href="/flights/rentals">Rentals</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/login">Login/Sign-Up</a>
           </div>
         </li>
       </ul>
     </div>
   </nav>
   <div class="container">
+    <h4 style="padding-top: 30px;">Departing: {{ outBound.0.departure_date }} </h4>
     <div class="row">
-    {% for item in outBound %}
+      {% for item in outBound %}
       <div class="col-md-4 card-adj">
         <div class="card">
           <img class="cards-contain" src="{{ clip }}" alt="Card image cap">
@@ -43,20 +42,50 @@
             <h4 class="cardLockTitle">{{ item.departure }} -> {{ item.arrival }}</h4>
             <h5>{{ item.timings.0.departure_time }} -> {{ item.timings.0.arrival_time }} </h5>
             {% if item.stops == '1 Stop' or item.stops == 'Nonstop' %}
-              <p>{{ item.stops }}</p>
+            <p>{{ item.stops }}</p>
             {% else %}
-              <p>{{ item.stops }}s</p>
+            <p>{{ item.stops }}s</p>
             {% endif %}
+            {{ item.departure_date }}
             {% if item.airline %}
-              <p>{{ item.airline }}</p>
+            <p>{{ item.airline }}</p>
             {% else %}
-              <p>Unknown Airline</p>
+            <p>Unknown Airline</p>
             {% endif %}
             <h4 class="darkRed">${{ item.ticket_price }}</h4>
           </div>
         </div>
       </div>
       {% endfor %}
+    </div>
+    <hr>
+    <h4 style="padding-top: 30px;">Returning: {{ inBound.0.departure_date }} </h4>
+    <div class="row">
+
+      {% for item in inBound %}
+      <div class="col-md-4 card-adj">
+        <div class="card">
+          <img class="cards-contain" src="{{ clip }}" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="cardLockTitle">{{ item.departure }} -> {{ item.arrival }}</h4>
+            <h5>{{ item.timings.0.departure_time }} -> {{ item.timings.0.arrival_time }} </h5>
+            {% if item.stops == '1 Stop' or item.stops == 'Nonstop' %}
+            <p>{{ item.stops }}</p>
+            {% else %}
+            <p>{{ item.stops }}s</p>
+            {% endif %}
+            {{ item.departure_date }}
+            {% if item.airline %}
+            <p>{{ item.airline }}</p>
+            {% else %}
+            <p>Unknown Airline</p>
+            {% endif %}
+            <h4 class="darkRed">${{ item.ticket_price }}</h4>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
     </div>
     <hr>
   </div>

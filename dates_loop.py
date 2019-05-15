@@ -45,4 +45,4 @@ def date_loop(origin, destination, depart_date, ret_date):
         # Add flight to the dictionary
         flightList.append(scraped_data)
 
-    return flightList
+    return allFlights

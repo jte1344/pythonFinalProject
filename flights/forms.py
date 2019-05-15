@@ -13,7 +13,7 @@ class ContactFormHotel(forms.Form):
     dateTo = forms.CharField(required=True)
 
 class ContactFormRental(forms.Form):
-    locFrom = forms.CharField(required=True)
-    locTo = forms.CharField(required=True)
+    location = forms.CharField(required=True)
+    state = forms.CharField(required=True)
     dateFrom = forms.CharField(required=True)
     dateTo = forms.CharField(required=True)
